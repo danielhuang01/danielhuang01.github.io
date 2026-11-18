@@ -1,16 +1,970 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>你好，GitHub</title>
-  </head>
-  <body>
-    <h1>覺得厲害</h1>
+<html lang="zh-Hant-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>宏采恆企業社｜黃文祿 - 搗擺與浴廁隔間工程專家</title>
+    <meta name="description" content="宏采恆企業社 黃文祿專業承攬浴廁搗擺系統規劃、抗倍特板、塑鋼隔間工程。提供免費現場丈量與快速 LINE 線上報價。">
+    
+    <!-- PWA 核心 Meta 標籤 (相容 Android Chrome 與 iOS Safari) -->
+    <meta name="theme-color" content="#0F4C81">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="宏采恆">
+    
+    <!-- 動態掛載 PWA Manifest 與 Apple Touch Icon 的佔位標籤 -->
+    <link id="pwa-manifest-link" rel="manifest" href="">
+    <link id="apple-touch-icon-link" rel="apple-touch-icon" href="https://lh3.googleusercontent.com/contacts/AG6tpzG4Kijt61_mKLIX9ZxkZfEcaaR-hbR7E4CcSi7AEn9GL0i0Tukz=s40-p">
+    <link id="favicon-link" rel="icon" type="image/svg+xml" href="https://lh3.googleusercontent.com/contacts/AG6tpzG4Kijt61_mKLIX9ZxkZfEcaaR-hbR7E4CcSi7AEn9GL0i0Tukz=s40-p">
+
+    <!-- 引入 Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入 Google Fonts: Noto Sans TC -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <!-- 引入 FontAwesome 圖示庫 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- 引入 QRCode.js 用於動態生成名片與 LINE 行動條碼 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
     <script>
-      document.write("goo life!")
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans TC"', 'sans-serif'],
+                    },
+                    colors: {
+                        iceBg: '#F4F8FB',
+                        deepBlue: '#0F4C81',
+                        azureBlue: '#1D70B8',
+                        brightBlue: '#3B82F6',
+                        softBlue: '#EBF3FA',
+                        slateText: '#1E293B',
+                    }
+                }
+            }
+        }
     </script>
-    
-    
-    
-  </body>
+
+    <style>
+        /* 明亮乾淨的工程藍背景與細膩建築格線 */
+        body {
+            background-color: #EEF4F9;
+            background-image: 
+                radial-gradient(circle at 12% 10%, rgba(29, 112, 184, 0.09) 0%, transparent 45%),
+                radial-gradient(circle at 88% 85%, rgba(15, 76, 129, 0.08) 0%, transparent 50%);
+            color: #1E293B;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* 主名片卡片立體白底陰影 */
+        .card-surface {
+            background: #FFFFFF;
+            border: 1px solid rgba(15, 76, 129, 0.12);
+            box-shadow: 0 20px 45px -12px rgba(15, 76, 129, 0.14), 0 4px 16px -2px rgba(15, 76, 129, 0.06);
+        }
+
+        /* 頂部建築藍圖幾何底紋 */
+        .blueprint-grid {
+            background-size: 22px 22px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.09) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.09) 1px, transparent 1px);
+        }
+
+        /* 隱藏橫向卷軸但保留滑動功能 */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* 深海藍立體漸層主按鈕 */
+        .btn-primary-blue {
+            background: linear-gradient(135deg, #0F4C81 0%, #1D70B8 100%);
+            color: #FFFFFF;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .btn-primary-blue:hover {
+            filter: brightness(1.06);
+            transform: translateY(-1px);
+            box-shadow: 0 10px 22px -5px rgba(15, 76, 129, 0.35);
+        }
+        .btn-primary-blue:active {
+            transform: translateY(0);
+        }
+
+        /* 淡入過渡動畫 */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.3s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="min-h-screen py-0 sm:py-8 px-0 sm:px-4 flex flex-col items-center justify-start font-sans antialiased selection:bg-azureBlue selection:text-white">
+
+    <!-- 全域浮動通知訊息框 (取代 alert) -->
+    <div id="toast-container" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 pointer-events-none transition-all duration-300 opacity-0 translate-y-4">
+        <div class="bg-slate-900/95 backdrop-blur-md border border-blue-400/30 text-white px-5 py-3 rounded-full shadow-2xl flex items-center gap-2.5 text-sm font-medium whitespace-nowrap">
+            <i id="toast-icon" class="fa-solid fa-circle-check text-sky-400"></i>
+            <span id="toast-message">操作成功</span>
+        </div>
+    </div>
+
+    <!-- 主電子名片容器 (手機滿版，桌機置中精緻卡片，最大寬度 520px) -->
+    <main class="w-full max-w-[520px] card-surface sm:rounded-3xl overflow-hidden relative pb-10">
+
+        <!-- 1. 名片頂部與品牌識別區 -->
+        <header class="relative">
+            <!-- 頂部工程藍幾何封面背景 -->
+            <div class="h-44 w-full bg-gradient-to-br from-[#0F4C81] via-[#175F9E] to-[#237BC6] blueprint-grid relative overflow-hidden">
+                <!-- 建築浴廁隔間幾何線條裝飾 SVG -->
+                <svg class="absolute inset-0 w-full h-full opacity-20" viewBox="0 0 440 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="24" y="24" width="88" height="136" stroke="#FFFFFF" stroke-width="1.4"/>
+                    <line x1="24" y1="142" x2="112" y2="142" stroke="#FFFFFF" stroke-width="1.4"/>
+                    <rect x="124" y="24" width="88" height="136" stroke="#FFFFFF" stroke-width="1.4"/>
+                    <line x1="124" y1="142" x2="212" y2="142" stroke="#FFFFFF" stroke-width="1.4"/>
+                    <circle cx="100" cy="90" r="3.5" fill="#FFFFFF"/>
+                    <circle cx="200" cy="90" r="3.5" fill="#FFFFFF"/>
+                    <path d="M250 160V36L390 16V160" stroke="#FFFFFF" stroke-width="1.2" stroke-dasharray="5 5"/>
+                </svg>
+
+                <!-- 品牌識別徽章 (宏采恆企業社 HTH) -->
+                <div class="absolute top-4 left-5 flex items-center gap-3">
+                    <div class="w-11 h-11 rounded-xl bg-white text-deepBlue font-black text-base flex items-center justify-center tracking-tight shadow-md border border-blue-100">
+                        HTH
+                    </div>
+                    <div class="text-white">
+                        <span class="inline-block text-[11px] bg-white/15 backdrop-blur-sm px-2 py-0.5 rounded text-blue-50 font-medium tracking-wider">
+                            專業浴廁搗擺系統工程
+                        </span>
+                        <p class="text-base font-bold tracking-wide mt-0.5 drop-shadow-sm">宏采恆企業社</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- 個人頭像與核心資料區 -->
+            <div class="px-6 -mt-14 relative z-10">
+                <div class="flex items-end justify-between">
+                    <!-- 專業工程顧問形象識別框 -->
+                    <div class="relative">
+                        <div class="w-24 h-24 rounded-2xl bg-white p-1.5 border-2 border-blue-100 shadow-lg">
+                            <div class="w-full h-full rounded-xl bg-gradient-to-br from-softBlue to-blue-100 flex flex-col items-center justify-center text-deepBlue relative overflow-hidden">
+                                <i class="fa-solid fa-user-tie text-3xl text-deepBlue/90 mb-0.5"></i>
+                                <span class="text-[10px] font-black tracking-widest text-azureBlue">HTH 工程</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 專業保證標籤 -->
+                    <div class="flex gap-2 mb-1">
+                        <div class="bg-softBlue border border-blue-200/70 px-3 py-1.5 rounded-xl text-center">
+                            <span class="block text-xs font-bold text-deepBlue">免費丈量</span>
+                            <span class="block text-[10px] text-slate-500">精準規劃</span>
+                        </div>
+                        <div class="bg-softBlue border border-blue-200/70 px-3 py-1.5 rounded-xl text-center">
+                            <span class="block text-xs font-bold text-deepBlue">責任施工</span>
+                            <span class="block text-[10px] text-slate-500">工廠直營</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 姓名、職稱與核心標語 -->
+                <div class="mt-4">
+                    <div class="flex items-center gap-2.5 flex-wrap">
+                        <h1 class="text-2xl font-black tracking-wide text-slate-900">黃文祿</h1>
+                        <span class="text-xs bg-deepBlue text-white px-2.5 py-1 rounded-lg font-medium shadow-sm">
+                            專案經理
+                        </span>
+                    </div>
+                    <p class="text-sm text-azureBlue font-bold mt-1.5">
+                        宏采恆企業社｜浴廁搗擺隔間工程
+                    </p>
+                    <div class="mt-3 p-3.5 rounded-2xl bg-softBlue/80 border-l-4 border-deepBlue text-xs text-slate-700 leading-relaxed font-medium">
+                        「專注公共衛浴空間規劃，堅持防潮耐用板材與精準乾式工法，為您打造乾淨、安全、美觀的現代化浴廁隔間。」
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- 2. 快速互動聯絡列 (Action Bar) -->
+        <section class="px-6 mt-6">
+            <!-- 主要按鈕：一鍵存入通訊錄 (.vcf) -->
+            <button onclick="downloadVCard()" class="w-full btn-primary-blue py-3.5 px-5 rounded-2xl font-bold text-sm flex items-center justify-center gap-2.5 shadow-md cursor-pointer">
+                <i class="fa-solid fa-address-card text-base"></i>
+                <span>一鍵儲存聯絡人至通訊錄</span>
+            </button>
+
+            <!-- 四大快速聯絡捷徑 -->
+            <div class="grid grid-cols-4 gap-2.5 mt-3.5">
+                <a id="action-call-btn" href="tel:0935380167" class="bg-iceBg hover:bg-softBlue border border-blue-100 py-3 rounded-2xl flex flex-col items-center justify-center gap-1.5 transition active:scale-95">
+                    <div class="w-9 h-9 rounded-full bg-deepBlue/10 text-deepBlue flex items-center justify-center">
+                        <i class="fa-solid fa-phone text-sm"></i>
+                    </div>
+                    <span class="text-xs text-slate-700 font-bold">撥打電話</span>
+                </a>
+
+                <a id="action-line-btn" href="https://line.me/ti/p/~hth_huang" target="_blank" rel="noopener noreferrer" class="bg-iceBg hover:bg-emerald-50 border border-blue-100 hover:border-emerald-200 py-3 rounded-2xl flex flex-col items-center justify-center gap-1.5 transition active:scale-95">
+                    <div class="w-9 h-9 rounded-full bg-emerald-500/15 text-emerald-600 flex items-center justify-center">
+                        <i class="fa-brands fa-line text-base"></i>
+                    </div>
+                    <span class="text-xs text-slate-700 font-bold">加 LINE 洽詢</span>
+                </a>
+
+                <button onclick="copyLineId()" class="bg-iceBg hover:bg-softBlue border border-blue-100 py-3 rounded-2xl flex flex-col items-center justify-center gap-1.5 transition active:scale-95 cursor-pointer">
+                    <div class="w-9 h-9 rounded-full bg-azureBlue/10 text-azureBlue flex items-center justify-center">
+                        <i class="fa-regular fa-copy text-sm"></i>
+                    </div>
+                    <span class="text-xs text-slate-700 font-bold">複製帳號</span>
+                </button>
+
+                <button onclick="openQrModal()" class="bg-iceBg hover:bg-softBlue border border-blue-100 py-3 rounded-2xl flex flex-col items-center justify-center gap-1.5 transition active:scale-95 cursor-pointer">
+                    <div class="w-9 h-9 rounded-full bg-sky-500/15 text-sky-600 flex items-center justify-center">
+                        <i class="fa-solid fa-share-nodes text-sm"></i>
+                    </div>
+                    <span class="text-xs text-slate-700 font-bold">分享名片</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- 分隔線 -->
+        <div class="my-7 border-t border-slate-100 mx-6"></div>
+
+        <!-- 3. 關於宏采恆與「搗擺隔間工程」詳細介紹 -->
+        <section class="px-6">
+            <div class="flex items-center justify-between mb-3">
+                <h2 class="text-base font-black text-slate-900 flex items-center gap-2">
+                    <span class="w-1.5 h-5 bg-deepBlue rounded-full"></span>
+                    關於宏采恆企業社與搗擺工程
+                </h2>
+                <span class="text-[11px] font-bold text-azureBlue bg-softBlue px-2.5 py-0.5 rounded-full">宏采恆專業工法</span>
+            </div>
+            
+            <div class="bg-iceBg border border-blue-100/80 rounded-2xl p-4.5 p-4 text-xs text-slate-700 leading-relaxed space-y-3">
+                <p>
+                    <strong class="text-deepBlue text-sm">什麼是「浴廁搗擺隔間」？</strong><br>
+                    「搗擺」為現代公共建築浴廁隔間系統的專業稱呼，廣泛應用於<span class="font-bold text-slate-900">商辦大樓、學校校園、百貨商場、醫院診所、科技廠房及餐飲門市</span>。不同於傳統泥作磚牆厚重佔空間、工期漫長且容易藏污納垢，現代搗擺系統採用高強度防潮板材搭配不鏽鋼／尼龍五金配件，兼具美觀與實用性。
+                </p>
+
+                <p>
+                    <strong class="text-deepBlue text-sm">宏采恆企業社（HTH）的核心服務理念</strong><br>
+                    宏采恆企業社深耕浴廁隔間工程領域，由黃文祿先生親自帶領專業團隊，從<span class="font-bold text-slate-900">現場雷射精準丈量、空間動線與無障礙規格建議、工廠電腦精密裁切加工，到現場無塵乾式快速安裝</span>，提供完整一條龍責任施工。我們嚴選通過耐燃與防潮檢測之優質板材，確保每一座隔間門扇開闔順暢、結構穩固耐用。
+                </p>
+
+                <!-- 四大工法優勢卡片 -->
+                <div class="grid grid-cols-2 gap-2.5 pt-1">
+                    <div class="bg-white rounded-xl p-3 border border-blue-100 shadow-sm flex items-start gap-2.5">
+                        <div class="w-7 h-7 rounded-lg bg-softBlue text-deepBlue flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <i class="fa-solid fa-droplet-slash text-xs"></i>
+                        </div>
+                        <div>
+                            <div class="font-bold text-slate-900 text-xs">極致防潮抗酸鹼</div>
+                            <p class="text-[11px] text-slate-500 mt-0.5">耐水氣沖洗與清潔劑擦拭，不膨脹變形。</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl p-3 border border-blue-100 shadow-sm flex items-start gap-2.5">
+                        <div class="w-7 h-7 rounded-lg bg-softBlue text-deepBlue flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <i class="fa-solid fa-bolt text-xs"></i>
+                        </div>
+                        <div>
+                            <div class="font-bold text-slate-900 text-xs">乾式施工工期短</div>
+                            <p class="text-[11px] text-slate-500 mt-0.5">工廠預製裁切，現場快速組裝不影響營運。</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl p-3 border border-blue-100 shadow-sm flex items-start gap-2.5">
+                        <div class="w-7 h-7 rounded-lg bg-softBlue text-deepBlue flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <i class="fa-solid fa-screwdriver-wrench text-xs"></i>
+                        </div>
+                        <div>
+                            <div class="font-bold text-slate-900 text-xs">精選耐用五金件</div>
+                            <p class="text-[11px] text-slate-500 mt-0.5">標配 304/316 不鏽鋼或高強度尼龍五金。</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl p-3 border border-blue-100 shadow-sm flex items-start gap-2.5">
+                        <div class="w-7 h-7 rounded-lg bg-softBlue text-deepBlue flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <i class="fa-solid fa-wheelchair text-xs"></i>
+                        </div>
+                        <div>
+                            <div class="font-bold text-slate-900 text-xs">客製尺寸與無障礙</div>
+                            <p class="text-[11px] text-slate-500 mt-0.5">符合建築法規無障礙推拉門與幼兒園矮門。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. 四大主流搗擺材質深度解析 (互動切換與完整敘述) -->
+        <section class="px-6 mt-7">
+            <div class="flex items-center justify-between mb-3">
+                <h2 class="text-base font-black text-slate-900 flex items-center gap-2">
+                    <span class="w-1.5 h-5 bg-deepBlue rounded-full"></span>
+                    四大主流搗擺材質深度解析
+                </h2>
+                <span class="text-[11px] text-slate-500 font-medium">點擊切換材質詳情</span>
+            </div>
+
+            <!-- 材質切換分頁按鈕 -->
+            <div class="grid grid-cols-4 gap-1.5 bg-iceBg p-1.5 rounded-2xl border border-blue-100" role="tablist">
+                <button onclick="selectMaterial('hpl')" id="tab-hpl" class="material-tab py-2.5 px-1 rounded-xl text-xs font-bold transition text-center bg-deepBlue text-white shadow-sm cursor-pointer">
+                    抗倍特板
+                </button>
+                <button onclick="selectMaterial('pvc')" id="tab-pvc" class="material-tab py-2.5 px-1 rounded-xl text-xs font-medium transition text-center text-slate-600 hover:text-deepBlue cursor-pointer">
+                    塑鋼發泡
+                </button>
+                <button onclick="selectMaterial('metal')" id="tab-metal" class="material-tab py-2.5 px-1 rounded-xl text-xs font-medium transition text-center text-slate-600 hover:text-deepBlue cursor-pointer">
+                    蜂巢
+                </button>
+            </div>
+
+            <!-- 動態材質詳細內容顯示區 -->
+            <div id="material-detail-card" class="mt-3 bg-white border border-blue-200/80 rounded-2xl p-4 shadow-sm animate-fade-in">
+                <!-- 由 JavaScript 動態渲染完整介紹與規格 -->
+            </div>
+        </section>
+
+        <!-- 5. 標準化四步驟施工流程 -->
+        <section class="px-6 mt-7">
+            <h2 class="text-base font-black text-slate-900 flex items-center gap-2 mb-4">
+                <span class="w-1.5 h-5 bg-deepBlue rounded-full"></span>
+                宏采恆標準服務流程
+            </h2>
+
+            <div class="grid grid-cols-4 gap-2 relative">
+                <!-- 連接橫線 -->
+                <div class="absolute top-5 left-7 right-7 h-[2px] bg-blue-100 -z-0"></div>
+
+                <div class="flex flex-col items-center text-center z-10">
+                    <div class="w-10 h-10 rounded-full bg-white border-2 border-deepBlue text-deepBlue font-black text-xs flex items-center justify-center shadow-sm">
+                        01
+                    </div>
+                    <span class="text-xs font-bold text-slate-800 mt-2">免費丈量</span>
+                    <span class="text-[10px] text-slate-500 mt-0.5 leading-tight">現場精準放樣<br>動線評估</span>
+                </div>
+
+                <div class="flex flex-col items-center text-center z-10">
+                    <div class="w-10 h-10 rounded-full bg-white border-2 border-deepBlue text-deepBlue font-black text-xs flex items-center justify-center shadow-sm">
+                        02
+                    </div>
+                    <span class="text-xs font-bold text-slate-800 mt-2">規劃報價</span>
+                    <span class="text-[10px] text-slate-500 mt-0.5 leading-tight">板材色卡挑選<br>透明估價單</span>
+                </div>
+
+                <div class="flex flex-col items-center text-center z-10">
+                    <div class="w-10 h-10 rounded-full bg-white border-2 border-deepBlue text-deepBlue font-black text-xs flex items-center justify-center shadow-sm">
+                        03
+                    </div>
+                    <span class="text-xs font-bold text-slate-800 mt-2">工廠預製</span>
+                    <span class="text-[10px] text-slate-500 mt-0.5 leading-tight">電腦精密裁切<br>倒角鑽孔</span>
+                </div>
+
+                <div class="flex flex-col items-center text-center z-10">
+                    <div class="w-10 h-10 rounded-full bg-deepBlue text-white font-black text-xs flex items-center justify-center shadow-md">
+                        04
+                    </div>
+                    <span class="text-xs font-bold text-deepBlue mt-2">責任安裝</span>
+                    <span class="text-[10px] text-slate-500 mt-0.5 leading-tight">專業團隊組裝<br>完工清潔驗收</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. LINE 線上諮詢與快速報價資訊卡片 (無表單純聯絡引導) -->
+        <section class="px-6 mt-8">
+            <div class="bg-gradient-to-br from-softBlue via-iceBg to-white border-2 border-blue-200/80 rounded-3xl p-5 shadow-sm relative overflow-hidden">
+                <!-- 右上裝飾圖示 -->
+                <i class="fa-brands fa-line text-7xl text-emerald-500/10 absolute -top-2 -right-2 pointer-events-none"></i>
+
+                <div class="flex items-center gap-2.5 mb-2">
+                    <div class="w-9 h-9 rounded-xl bg-emerald-500 text-white flex items-center justify-center shadow-sm">
+                        <i class="fa-brands fa-line text-xl"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-base font-black text-slate-900">LINE 線上諮詢與快速報價</h2>
+                        <p class="text-[11px] text-slate-600">直接加好友傳訊息，由黃文祿親自為您評估</p>
+                    </div>
+                </div>
+
+                <!-- LINE 帳號與行動條碼展示框 -->
+                <div class="mt-4 bg-white rounded-2xl p-4 border border-blue-100 flex items-center justify-between gap-3 shadow-sm">
+                    <div class="space-y-2 flex-1">
+                        <div>
+                            <span class="text-[11px] text-slate-400 block">專屬工程顧問 LINE 帳號</span>
+                            <span id="display-line-id" class="text-base font-black text-deepBlue tracking-wide select-all">hth_huang</span>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <button onclick="copyLineId()" class="bg-softBlue hover:bg-blue-100 text-deepBlue text-xs font-bold px-3 py-2 rounded-xl flex items-center gap-1.5 transition active:scale-95 cursor-pointer">
+                                <i class="fa-regular fa-copy"></i>
+                                <span>複製帳號</span>
+                            </button>
+                            <a id="card-line-link" href="https://line.me/ti/p/~hth_huang" target="_blank" rel="noopener noreferrer" class="bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold px-3.5 py-2 rounded-xl flex items-center gap-1.5 shadow-sm transition active:scale-95">
+                                <i class="fa-brands fa-line"></i>
+                                <span>立即開啟對話</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- LINE 行動條碼渲染容器 -->
+                    <div class="flex flex-col items-center flex-shrink-0">
+                        <div class="p-1.5 bg-white border border-slate-200 rounded-xl shadow-xs">
+                            <div id="line-qrcode-box"></div>
+                        </div>
+                        <span class="text-[10px] text-slate-400 mt-1">掃碼加好友</span>
+                    </div>
+                </div>
+
+                <!-- 貼心傳訊詢價小提醒 -->
+                <div class="mt-3.5 bg-white/80 rounded-2xl p-3.5 border border-blue-100/80 text-xs text-slate-600">
+                    <div class="font-bold text-deepBlue flex items-center gap-1.5 mb-1.5">
+                        <i class="fa-solid fa-lightbulb text-amber-500"></i>
+                        <span>傳訊詢價小提醒（提供以下資訊報價更快速）：</span>
+                    </div>
+                    <ul class="space-y-1 text-[11px] text-slate-600 pl-4 list-disc">
+                        <li><strong class="text-slate-800">案場地點：</strong>施工所在的縣市與區域（例如：新北市三重區）。</li>
+                        <li><strong class="text-slate-800">預估間數：</strong>大約需要施作的廁所隔間數量或小便斗隔板數。</li>
+                        <li><strong class="text-slate-800">現場照片：</strong>若有現場空間照片或平面尺寸圖，歡迎直接拍照傳送！</li>
+                    </ul>
+                </div>
+
+                <!-- 電話直撥補充列 -->
+                <div class="mt-3 pt-3 border-t border-blue-100 flex items-center justify-between text-xs">
+                    <span class="text-slate-500 font-medium">急件工程歡迎直接來電洽詢：</span>
+                    <a id="footer-phone-link" href="tel:0912345678" class="font-black text-deepBlue hover:text-azureBlue flex items-center gap-1.5">
+                        <i class="fa-solid fa-phone-volume text-azureBlue"></i>
+                        <span id="display-phone-text">0935-380-167</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. 頁尾公司資訊與 PWA 離線狀態指示 -->
+        <footer class="mt-8 px-6 text-center text-[11px] text-slate-500 space-y-1.5">
+            <div class="inline-flex items-center gap-2 bg-iceBg border border-blue-100 px-3 py-1 rounded-full text-[11px] text-deepBlue font-bold mb-1">
+                <span>宏采恆企業社</span>
+                <span class="text-blue-200">|</span>
+                <span>浴廁搗擺隔間工程</span>
+            </div>
+            <p>服務項目：抗倍特板隔間、塑鋼發泡板隔間、浴廁五金維修更新</p>
+            <div class="pt-1 flex items-center justify-center gap-3 text-[10px] text-slate-400">
+                <span id="pwa-status-badge" class="inline-flex items-center gap-1">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                    支援離線瀏覽模式
+                </span>
+                <span>•</span>
+                <button onclick="openIosGuideModal()" class="underline hover:text-deepBlue cursor-pointer">
+                    如何加入手機主畫面？
+                </button>
+            </div>
+        </footer>
+    </main>
+
+    <!-- 名片分享行動條碼彈窗 -->
+    <div id="qr-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-900/65 backdrop-blur-sm animate-fade-in" onclick="closeQrModal(event)">
+        <div class="bg-white border border-blue-100 rounded-3xl max-w-xs w-full p-6 text-center relative shadow-2xl" onclick="event.stopPropagation()">
+            <button onclick="closeQrModal()" aria-label="關閉視窗" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 flex items-center justify-center transition cursor-pointer">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="w-11 h-11 rounded-2xl bg-deepBlue text-white font-black text-sm flex items-center justify-center mx-auto mb-2 shadow-sm">
+                HTH
+            </div>
+            <h3 class="text-lg font-black text-slate-900">宏采恆企業社｜黃文祿</h3>
+            <p class="text-xs text-slate-500 mt-1">請開啟手機相機掃描下方行動條碼</p>
+
+            <!-- 名片網址行動條碼渲染區 -->
+            <div class="my-5 p-4 bg-iceBg border border-blue-100 rounded-2xl inline-block">
+                <div id="qrcode-canvas"></div>
+            </div>
+
+            <button onclick="copyCardUrl()" class="w-full btn-primary-blue py-3 px-4 rounded-xl text-xs font-bold flex items-center justify-center gap-2 cursor-pointer">
+                <i class="fa-solid fa-link"></i>
+                <span>複製電子名片網址</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- iOS / 手機加入主畫面教學彈窗 (PWA 安裝輔助指引) -->
+    <div id="ios-guide-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-900/65 backdrop-blur-sm animate-fade-in" onclick="closeIosGuideModal(event)">
+        <div class="bg-white border border-blue-100 rounded-3xl max-w-xs w-full p-6 text-left relative shadow-2xl" onclick="event.stopPropagation()">
+            <button onclick="closeIosGuideModal()" aria-label="關閉視窗" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 flex items-center justify-center transition cursor-pointer">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="flex items-center gap-2.5 mb-3">
+                <div class="w-9 h-9 rounded-xl bg-softBlue text-deepBlue flex items-center justify-center font-black text-xs">
+                    HTH
+                </div>
+                <div>
+                    <h3 class="text-base font-black text-slate-900">加入手機主畫面教學</h3>
+                    <p class="text-[11px] text-slate-500">將本名片變成手機桌面快捷圖示</p>
+                </div>
+            </div>
+
+            <div class="space-y-3 text-xs text-slate-700 bg-iceBg p-3.5 rounded-2xl border border-blue-100">
+                <div>
+                    <p class="font-bold text-deepBlue mb-1"><i class="fa-brands fa-apple mr-1"></i> 蘋果手機瀏覽器操作步驟：</p>
+                    <ol class="list-decimal pl-4 space-y-1 text-[11px] text-slate-600">
+                        <li>點擊螢幕下方工具列的<strong>「分享」</strong>圖示 <i class="fa-solid fa-arrow-up-from-bracket text-azureBlue"></i>。</li>
+                        <li>往下滑動選單，點選<strong>「加入主畫面」</strong>。</li>
+                        <li>點擊右上角<strong>「新增」</strong>，即可在桌面看到 HTH 圖示！</li>
+                    </ol>
+                </div>
+                <div class="border-t border-blue-200/60 pt-2.5">
+                    <p class="font-bold text-deepBlue mb-1"><i class="fa-brands fa-android mr-1"></i> 安卓手機瀏覽器操作步驟：</p>
+                    <ol class="list-decimal pl-4 space-y-1 text-[11px] text-slate-600">
+                        <li>點擊瀏覽器右上角<strong>「⋮」</strong>選單按鈕。</li>
+                        <li>點選<strong>「安裝應用程式」</strong>或<strong>「加到主畫面」</strong>即可完成。</li>
+                    </ol>
+                </div>
+            </div>
+
+            <button onclick="closeIosGuideModal()" class="w-full mt-4 bg-deepBlue text-white py-2.5 rounded-xl text-xs font-bold cursor-pointer">
+                我知道了
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // =====================================================================
+        // 【聯絡資料快速設定區】未來如需修改電話或 LINE ID，只需修改此處即可全站同步
+        // =====================================================================
+        const CARD_CONFIG = {
+            companyName: '宏采恆企業社',
+            companyAbbr: 'HTH',
+            contactName: '黃文祿',
+            jobTitle: '專案經理',
+            phoneDisplay: '0935-380-167',       // 顯示用電話格式
+            phoneRaw: '0935380167',             // 撥號用純數字電話
+            lineId: '0935380167',                // 您的 LINE ID
+            lineUrl: 'https://line.me/ti/p/~0935380167', // 您的 LINE 加入好友網址
+            serviceArea: '全台各縣市浴廁搗擺隔間工程規劃施工'
+        };
+
+        // =====================================================================
+        // 1. 四大主流搗擺材質完整資料庫與互動切換邏輯
+        // =====================================================================
+        const materialsData = {
+            hpl: {
+                title: '抗倍特板（高壓實心積層板）',
+                badge: '業界最主流・商辦學校首選',
+                description: '抗倍特板是由多層優質牛皮紙含浸酚醛樹脂，表層覆以三聚氰胺裝飾色紙，經高溫（150℃）與高壓（1430 psi）一體壓製而成的實心結構板材（常用厚度 12mm 或 18mm）。板材內部結構極度緊密無毛細孔，具備卓越的耐撞擊、抗刮磨與防潮防水性能，且表面花色選擇豐富（包含素色、石紋、木紋），是現代商辦大樓與公共建築最信賴的隔間首選。',
+                specs: [
+                    { label: '防水防潮能力', value: '★★★★★（實心不吸水、不膨脹變形）' },
+                    { label: '耐撞擊與耐磨', value: '★★★★★（高密度抗刮、耐重擊）' },
+                    { label: '防火與耐煙灼', value: '符合耐燃一級標準・耐高溫煙灼' },
+                    { label: '最佳適用場域', value: '商辦大樓、百貨商場、學校、餐廳門市' }
+                ],
+                colors: [
+                    { name: '極簡純白', hex: '#F8FAFC' },
+                    { name: '淺霧灰', hex: '#CBD5E1' },
+                    { name: '沉穩岩灰', hex: '#475569' },
+                    { name: '溫潤木紋', hex: '#A37B54' }
+                ]
+            },
+            pvc: {
+                title: '塑鋼發泡板（PVC 實心硬殼發泡板）',
+                badge: '100% 完全防水・高性價比',
+                description: '塑鋼發泡板採用高分子聚氯乙烯（PVC）透過先進共擠發泡技術成型，雙面表層經過特殊硬化處理，提升表面硬度與平滑度。其最大特色在於「100% 完全防水、不發霉、不腐爛且不受白蟻蛀蝕」，即使在長期大量沖水或高濕度的淋浴空間也能保持結構穩定。整體重量較輕、施工迅速且預算經濟實惠，是追求高耐用與預算控制的極佳方案。',
+                specs: [
+                    { label: '防水防潮能力', value: '★★★★★（可長期直接沖水浸泡不腐爛）' },
+                    { label: '耐撞擊與耐磨', value: '★★★☆☆（日常使用穩固，避免尖銳重擊）' },
+                    { label: '耐酸鹼清潔性', value: '優異・耐一般浴廁清潔劑刷洗' },
+                    { label: '最佳適用場域', value: '游泳池淋浴間、工廠廠房、一般餐飲店' }
+                ],
+                colors: [
+                    { name: '象牙白', hex: '#FAF8F5' },
+                    { name: '珍珠灰', hex: '#D1D5DB' },
+                    { name: '晴空藍', hex: '#BAE6FD' },
+                    { name: '暖米色', hex: '#E7DEC8' }
+                ]
+            }
+        };
+
+        /**
+         * 切換材質分頁並渲染詳細規格與長文介紹
+         */
+        function selectMaterial(key) {
+            const data = materialsData[key];
+            if (!data) return;
+
+            // 更新分頁按鈕選中狀態
+            document.querySelectorAll('.material-tab').forEach(btn => {
+                btn.classList.remove('bg-deepBlue', 'text-white', 'font-bold', 'shadow-sm');
+                btn.classList.add('text-slate-600', 'font-medium');
+            });
+            const activeBtn = document.getElementById(`tab-${key}`);
+            if (activeBtn) {
+                activeBtn.classList.remove('text-slate-600', 'font-medium');
+                activeBtn.classList.add('bg-deepBlue', 'text-white', 'font-bold', 'shadow-sm');
+            }
+
+            // 渲染詳細內容卡片
+            const card = document.getElementById('material-detail-card');
+            card.innerHTML = `
+                <div class="flex items-start justify-between gap-2 flex-wrap">
+                    <h3 class="text-sm font-black text-deepBlue">${data.title}</h3>
+                    <span class="text-[10px] bg-softBlue text-azureBlue border border-blue-200 px-2.5 py-0.5 rounded-full font-bold whitespace-nowrap">
+                        ${data.badge}
+                    </span>
+                </div>
+                <p class="text-xs text-slate-700 mt-2.5 leading-relaxed text-justify">
+                    ${data.description}
+                </p>
+                
+                <div class="mt-3.5 space-y-2 border-t border-slate-100 pt-3 bg-iceBg/70 p-3 rounded-xl">
+                    ${data.specs.map(s => `
+                        <div class="flex justify-between items-center text-[11px] gap-2">
+                            <span class="text-slate-500 font-medium whitespace-nowrap">${s.label}</span>
+                            <span class="text-slate-800 font-bold text-right">${s.value}</span>
+                        </div>
+                    `).join('')}
+                </div>
+
+                <div class="mt-3 pt-2.5 border-t border-slate-100 flex items-center justify-between flex-wrap gap-2">
+                    <span class="text-[11px] text-slate-500 font-medium">常見工程色系參考：</span>
+                    <div class="flex items-center gap-2">
+                        ${data.colors.map(c => `
+                            <div class="flex items-center gap-1 bg-slate-50 border border-slate-200 px-2 py-0.5 rounded-full">
+                                <span class="w-3 h-3 rounded-full border border-slate-300 shadow-xs" style="background-color: ${c.hex};"></span>
+                                <span class="text-[10px] text-slate-600">${c.name}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        // =====================================================================
+        // 2. 一鍵儲存聯絡人 (.vcf 電子名片檔生成)
+        // =====================================================================
+        function downloadVCard() {
+            try {
+                const vcardLines = [
+                    'BEGIN:VCARD',
+                    'VERSION:3.0',
+                    `N:${CARD_CONFIG.contactName.charAt(0)};${CARD_CONFIG.contactName.slice(1)};;;`,
+                    `FN:${CARD_CONFIG.contactName} - ${CARD_CONFIG.companyName} (${CARD_CONFIG.companyAbbr})`,
+                    `ORG:${CARD_CONFIG.companyName} (${CARD_CONFIG.companyAbbr})`,
+                    `TITLE:${CARD_CONFIG.jobTitle}`,
+                    `TEL;TYPE=CELL,VOICE:${CARD_CONFIG.phoneDisplay}`,
+                    `URL:${window.location.href}`,
+                    `NOTE:專業浴廁搗擺隔間工程規劃施工。LINE 帳號：${CARD_CONFIG.lineId}`,
+                    'END:VCARD'
+                ];
+
+                const vcardContent = vcardLines.join('\r\n');
+                const blob = new Blob([vcardContent], { type: 'text/vcard;charset=utf-8' });
+                const url = URL.createObjectURL(blob);
+
+                const link = document.createElement('a');
+                link.href = url;
+                link.setAttribute('download', `${CARD_CONFIG.companyName}_${CARD_CONFIG.contactName}_電子名片.vcf`);
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                URL.revokeObjectURL(url);
+
+                showToast('已下載聯絡人檔案，請點擊開啟並儲存至通訊錄');
+            } catch (error) {
+                console.error('產生聯絡人檔案失敗:', error);
+                showToast('下載失敗，請直接點擊撥打電話或加 LINE 聯絡', true);
+            }
+        }
+
+        // =====================================================================
+        // 3. 複製 LINE 帳號、名片網址與行動條碼渲染
+        // =====================================================================
+        function copyLineId() {
+            copyTextFallback(CARD_CONFIG.lineId, `已複製 LINE 帳號「${CARD_CONFIG.lineId}」，可直接貼上搜尋好友！`);
+        }
+
+        function copyCardUrl() {
+            copyTextFallback(window.location.href, '已複製電子名片網址，可立即傳送分享！');
+        }
+
+        let cardQrGenerated = false;
+        function openQrModal() {
+            const modal = document.getElementById('qr-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+
+            if (!cardQrGenerated) {
+                const qrContainer = document.getElementById('qrcode-canvas');
+                qrContainer.innerHTML = '';
+                new QRCode(qrContainer, {
+                    text: window.location.href,
+                    width: 176,
+                    height: 176,
+                    colorDark: '#0F4C81',
+                    colorLight: '#FFFFFF',
+                    correctLevel: QRCode.CorrectLevel.M
+                });
+                cardQrGenerated = true;
+            }
+        }
+
+        function closeQrModal(event) {
+            if (!event || event.target.id === 'qr-modal') {
+                const modal = document.getElementById('qr-modal');
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            }
+        }
+
+        function openIosGuideModal() {
+            const modal = document.getElementById('ios-guide-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeIosGuideModal(event) {
+            if (!event || event.target.id === 'ios-guide-modal') {
+                const modal = document.getElementById('ios-guide-modal');
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            }
+        }
+
+        // 相容所有手機與網頁環境的安全剪貼簿複製函式
+        function copyTextFallback(text, successMsg) {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            textarea.style.position = 'fixed';
+            textarea.style.opacity = '0';
+            document.body.appendChild(textarea);
+            textarea.select();
+            try {
+                document.execCommand('copy');
+                showToast(successMsg);
+            } catch (err) {
+                showToast('複製失敗，請手動長按文字複製', true);
+            }
+            document.body.removeChild(textarea);
+        }
+
+        // 底部輕量通知訊息
+        let toastTimer = null;
+        function showToast(message, isError = false) {
+            const container = document.getElementById('toast-container');
+            const msgEl = document.getElementById('toast-message');
+            const iconEl = document.getElementById('toast-icon');
+
+            msgEl.textContent = message;
+            iconEl.className = isError 
+                ? 'fa-solid fa-circle-exclamation text-rose-400' 
+                : 'fa-solid fa-circle-check text-sky-400';
+
+            container.classList.remove('opacity-0', 'translate-y-4');
+            container.classList.add('opacity-100', 'translate-y-0');
+
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => {
+                container.classList.remove('opacity-100', 'translate-y-0');
+                container.classList.add('opacity-0', 'translate-y-4');
+            }, 3200);
+        }
+
+        // =====================================================================
+        // 4. 完整 PWA 漸進式網頁應用程式支援 (專為 GitHub Pages 相對路徑優化)
+        // =====================================================================
+        let deferredPrompt = null;
+
+        /**
+         * 動態生成 SVG 應用圖示並注入 Web App Manifest
+         * 確保單一 index.html 上傳至 github.io 任何子目錄皆具備完整 PWA 圖示與全螢幕體驗
+         */
+        function initPwaManifestAndIcons() {
+            // 設計 HTH 深海藍建築風格正方形圖示 (SVG)
+            const svgIcon = `
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                    <defs>
+                        <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#0F4C81"/>
+                            <stop offset="100%" stop-color="#1D70B8"/>
+                        </linearGradient>
+                    </defs>
+                    <rect width="512" height="512" rx="112" fill="url(#bg)"/>
+                    <rect x="36" y="36" width="440" height="440" rx="88" fill="none" stroke="#FFFFFF" stroke-opacity="0.25" stroke-width="6"/>
+                    <text x="256" y="265" font-family="Arial, sans-serif" font-weight="900" font-size="148" fill="#FFFFFF" text-anchor="middle" letter-spacing="-4">HTH</text>
+                    <text x="256" y="355" font-family="sans-serif" font-weight="700" font-size="48" fill="#BAE6FD" text-anchor="middle" letter-spacing="6">宏采恆企業社</text>
+                </svg>
+            `.trim();
+
+            const svgDataUrl = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svgIcon);
+
+            // 設定網頁分頁圖示與蘋果桌面圖示
+            document.getElementById('favicon-link').href = svgDataUrl;
+            document.getElementById('apple-touch-icon-link').href = svgDataUrl;
+
+            // 取得當前 GitHub Pages 頁面基礎路徑 (相容 username.github.io/repo-name/)
+            const currentUrl = window.location.href.split('#')[0].split('?')[0];
+            const baseScope = currentUrl.substring(0, currentUrl.lastIndexOf('/') + 1);
+
+            const manifestObj = {
+                name: '宏采恆企業社 HTH｜黃文祿 電子名片',
+                short_name: '宏采恆 HTH',
+                description: '宏采恆企業社（HTH）黃文祿專業承攬浴廁搗擺系統規劃與隔間工程。',
+                start_url: currentUrl,
+                scope: baseScope,
+                display: 'standalone',
+                orientation: 'portrait',
+                background_color: '#F4F8FB',
+                theme_color: '#0F4C81',
+                icons: [
+                    {
+                        src: svgDataUrl,
+                        sizes: '192x192',
+                        type: 'image/svg+xml',
+                        purpose: 'any maskable'
+                    },
+                    {
+                        src: svgDataUrl,
+                        sizes: '512x512',
+                        type: 'image/svg+xml',
+                        purpose: 'any maskable'
+                    }
+                ]
+            };
+
+            const manifestBlob = new Blob([JSON.stringify(manifestObj)], { type: 'application/manifest+json' });
+            const manifestUrl = URL.createObjectURL(manifestBlob);
+            document.getElementById('pwa-manifest-link').setAttribute('href', manifestUrl);
+        }
+
+        /**
+         * 註冊 Service Worker 以支援 GitHub Pages 離線快取瀏覽
+         * 採用雙重機制：優先嘗試同目錄下的 ./sw.js，若無獨立檔案則自動透過 Blob 註冊內建快取核心
+         */
+        async function registerPwaServiceWorker() {
+            if (!('serviceWorker' in navigator)) return;
+
+            const swCode = `
+                const CACHE_NAME = 'hth-card-cache-v1';
+                const ASSETS_TO_CACHE = ['./', './index.html'];
+
+                self.addEventListener('install', (event) => {
+                    self.skipWaiting();
+                    event.waitUntil(
+                        caches.open(CACHE_NAME).then((cache) => {
+                            return cache.addAll(ASSETS_TO_CACHE).catch(() => {});
+                        })
+                    );
+                });
+
+                self.addEventListener('activate', (event) => {
+                    event.waitUntil(self.clients.claim());
+                });
+
+                self.addEventListener('fetch', (event) => {
+                    if (event.request.method !== 'GET') return;
+                    event.respondWith(
+                        fetch(event.request)
+                            .then((networkResponse) => {
+                                const cloned = networkResponse.clone();
+                                caches.open(CACHE_NAME).then((cache) => {
+                                    cache.put(event.request, cloned).catch(() => {});
+                                });
+                                return networkResponse;
+                            })
+                            .catch(() => caches.match(event.request))
+                    );
+                });
+            `;
+
+            try {
+                // 優先嘗試註冊 GitHub Pages 同目錄下的相對路徑 ./sw.js
+                await navigator.serviceWorker.register('./sw.js', { scope: './' });
+            } catch (e) {
+                // 若使用者僅上傳單一 index.html 至 GitHub Pages，自動降級為 Blob 內建 Service Worker
+                try {
+                    const swBlob = new Blob([swCode], { type: 'application/javascript' });
+                    const swUrl = URL.createObjectURL(swBlob);
+                    await navigator.serviceWorker.register(swUrl);
+                } catch (err) {
+                    // 某些特殊沙盒預覽環境會限制 Service Worker，不影響正常網頁使用
+                    console.info('目前環境不支援離線快取註冊，部署至 github.io 後將自動啟用。');
+                }
+            }
+        }
+
+        // 監聽瀏覽器 PWA 安裝提示事件
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            const banner = document.getElementById('pwa-install-banner');
+            if (banner) banner.classList.remove('hidden');
+        });
+
+        // 觸發 PWA 安裝或開啟手動加入桌面教學
+        async function triggerPwaInstall() {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                const { outcome } = await deferredPrompt.userChoice;
+                if (outcome === 'accepted') {
+                    showToast('已成功將「宏采恆 HTH」加入手機主畫面！');
+                    document.getElementById('pwa-install-banner').classList.add('hidden');
+                }
+                deferredPrompt = null;
+            } else {
+                openIosGuideModal();
+            }
+        }
+
+        function dismissInstallBanner() {
+            document.getElementById('pwa-install-banner').classList.add('hidden');
+        }
+
+        // =====================================================================
+        // 5. 頁面初始化執行
+        // =====================================================================
+        window.addEventListener('DOMContentLoaded', () => {
+            // 同步聯絡資訊至畫面元素
+            document.getElementById('action-call-btn').href = `tel:${CARD_CONFIG.phoneRaw}`;
+            document.getElementById('footer-phone-link').href = `tel:${CARD_CONFIG.phoneRaw}`;
+            document.getElementById('display-phone-text').textContent = CARD_CONFIG.phoneDisplay;
+            document.getElementById('display-line-id').textContent = CARD_CONFIG.lineId;
+            document.getElementById('action-line-btn').href = CARD_CONFIG.lineUrl;
+            document.getElementById('card-line-link').href = CARD_CONFIG.lineUrl;
+
+            // 生成 LINE 加好友行動條碼
+            const lineQrBox = document.getElementById('line-qrcode-box');
+            if (lineQrBox) {
+                new QRCode(lineQrBox, {
+                    text: CARD_CONFIG.lineUrl,
+                    width: 82,
+                    height: 82,
+                    colorDark: '#0F4C81',
+                    colorLight: '#FFFFFF',
+                    correctLevel: QRCode.CorrectLevel.M
+                });
+            }
+
+            // 預設顯示第一個材質（抗倍特板）
+            selectMaterial('hpl');
+
+            // 初始化 PWA Manifest 與 Service Worker
+            initPwaManifestAndIcons();
+            registerPwaServiceWorker();
+
+            // 若非從主畫面獨立視窗開啟，顯示加入桌面友善提示列
+            const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+            if (!isStandalone) {
+                setTimeout(() => {
+                    const banner = document.getElementById('pwa-install-banner');
+                    if (banner) banner.classList.remove('hidden');
+                }, 1200);
+            }
+        });
+    </script>
+</body>
 </html>
